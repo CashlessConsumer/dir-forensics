@@ -1,0 +1,54 @@
+# Default security flag ruleset — copy and customize for your case
+# Add/remove flags to match your domain. First match wins (order matters).
+flags:
+  - id: Cert/Key
+    severity: critical
+    color: "#f87171"
+    ext: [pem, key, crt, p12, jks, keystore, der, cer]
+    exclude_path: [Python310, site-packages, "Lib/test", node_modules]
+
+  - id: Credentials
+    severity: critical
+    color: "#ef4444"
+    names: [password, secret, credential, "api key", apikey, token, "private key", passwd, ".env"]
+
+  - id: Database
+    severity: high
+    color: "#60a5fa"
+    ext: [bak, db, sqlite, sqlite3, mdb, accdb, dbf]
+
+  - id: Mobile Binary
+    severity: high
+    color: "#a78bfa"
+    ext: [apk, ipa, aab]
+
+  - id: Packet Capture
+    severity: high
+    color: "#fbbf24"
+    ext: [pcap, pcapng, cap]
+
+  - id: Infra Config
+    severity: high
+    color: "#fb923c"
+    names: [firewall, httpd, "server config", vpn, siem, "network config", router, switch]
+
+  - id: SQL
+    severity: medium
+    color: "#818cf8"
+    ext: [sql, ddl, dml]
+
+  - id: Config
+    severity: medium
+    color: "#34d399"
+    ext: [env, conf, ini, cfg, config, properties, xml]
+    exclude_path: [Python310, site-packages, "Lib/test", node_modules]
+
+  - id: VAPT Report
+    severity: medium
+    color: "#22c55e"
+    names: [vapt, vulnerability, "pen test", pentest, "security audit", "is audit"]
+
+  - id: Backup
+    severity: low
+    color: "#94a3b8"
+    ext: [bak, old, orig, backup, gz, tar, zip, rar, 7z, iso, img]

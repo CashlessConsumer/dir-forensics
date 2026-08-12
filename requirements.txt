@@ -1,0 +1,6 @@
+duckdb>=0.9
+beautifulsoup4>=4.11
+lxml>=4.9
+aiohttp>=3.9
+aiohttp_socks>=0.8  # optional: Tor/SOCKS5 for apache_listing adapter
+pyyaml>=6.0

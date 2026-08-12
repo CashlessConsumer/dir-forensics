@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "dirforensics"
+version = "0.1.0"
+description = "Generic metadata-only directory forensics pipeline. Analyze any directory tree — tree structure, duplicates, extensions, security flags, dedup budgets."
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+dependencies = [
+    "duckdb>=0.9",
+    "beautifulsoup4>=4.11",
+    "lxml>=4.9",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+crawl = ["aiohttp>=3.9", "aiohttp-socks>=0.8"]
+dev = ["pytest>=7", "ruff>=0.1"]
+
+[project.scripts]
+dirforensics = "dirforensics.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["dirforensics*"]
+
+[tool.setuptools.package-data]
+dirforensics = ["viewer/*.html", "viewer/*.css", "viewer/*.js"]

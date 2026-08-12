@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.egg-info/
+*.duckdb
+*.duckdb.wal
+dist/
+build/
+.eggs/
+*.so
+.env
+.venv/
+venv/
+output/
+cases/output/
+cases/.inventory-cache/
+cases/demo-output/
