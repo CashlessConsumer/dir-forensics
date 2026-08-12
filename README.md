@@ -1,5 +1,7 @@
 # dir-forensics
 
+**[▶ Live Demo](https://cashlessconsumer.github.io/dir-forensics/demo/)** — interactive dashboard with synthetic data, no install needed.
+
 Generic metadata-only directory forensics pipeline. Point it at any directory tree — a web crawl inventory, a local filesystem, an S3 bucket index — and get structural analysis, duplicate detection, security flags, and dedup budgets. **No file contents are ever read.**
 
 ## Quick Start (zero setup)
