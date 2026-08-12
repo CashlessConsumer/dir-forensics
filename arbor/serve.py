@@ -55,6 +55,7 @@ def serve(output_dir: Path, case: str, port: int = 9173, open_browser: bool = Tr
             ct = {
                 "styles.css": "text/css",
                 "app.js": "application/javascript",
+                "logo.svg": "image/svg+xml",
             }.get(name, "application/octet-stream")
             self.send_response(200)
             self.send_header("Content-Type", ct)
@@ -69,12 +70,12 @@ def serve(output_dir: Path, case: str, port: int = 9173, open_browser: bool = Tr
     artifacts = list(output_dir.glob(f"{case}-*.json"))
     if not artifacts:
         print(f"[serve] warning: no artifacts matching '{case}-*.json' in {output_dir}")
-        print(f"        run 'dirforensics all' first, then serve.")
+        print(f"        run 'arbor all' first, then serve.")
     else:
         print(f"[serve] {len(artifacts)} artifacts found")
 
     url = f"http://localhost:{port}"
-    print(f"[serve] dir-forensics viewer → {url}")
+    print(f"[serve] Arbor viewer → {url}")
     print(f"[serve] case: {case}")
     print(f"[serve] serving from: {output_dir}")
     print(f"[serve] press Ctrl+C to stop")

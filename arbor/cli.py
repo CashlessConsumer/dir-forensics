@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""dirforensics — generic metadata-only directory forensics pipeline.
+"""arbor — generic metadata-only directory forensics pipeline.
 
 A case is defined by a YAML config. The CLI runs stages in order:
     demo     → generate synthetic data + run full pipeline (zero setup)
@@ -14,9 +14,9 @@ Every analyzer reads ONLY the canonical inventory JSON (never file contents).
 Outputs land in <output_dir>/<case>-<artifact>.json.
 
 Usage:
-    python -m dirforensics.cli demo cases/demo.yaml     # zero-setup: generate data + analyze
-    python -m dirforensics.cli all cases/my-case.yaml
-    python -m dirforensics.cli serve cases/demo.yaml --port 8765
+    python -m arbor.cli demo cases/demo.yaml     # zero-setup: generate data + analyze
+    python -m arbor.cli all cases/my-case.yaml
+    python -m arbor.cli serve cases/demo.yaml --port 8765
 """
 
 from __future__ import annotations
@@ -78,17 +78,17 @@ def cmd_tier0(cfg: CaseConfig, verbose: bool = False) -> Path:
 
 
 def cmd_all(cfg: CaseConfig, verbose: bool = False):
-    print(f"[dirforensics] case: {cfg.case}")
+    print(f"[arbor] case: {cfg.case}")
     cmd_ingest(cfg, verbose)
     cmd_analyze(cfg, verbose)
     cmd_flags(cfg, verbose)
     cmd_tier0(cfg, verbose)
-    print(f"[dirforensics] done → {cfg.output_dir}/")
+    print(f"[arbor] done → {cfg.output_dir}/")
 
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
-        prog="dirforensics",
+        prog="arbor",
         description="Generic metadata-only directory forensics pipeline",
     )
     ap.add_argument("command", choices=["demo", "ingest", "analyze", "flags", "tier0", "all", "serve"])

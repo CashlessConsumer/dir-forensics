@@ -1,4 +1,4 @@
-# Demo case — zero-setup. Run: python -m dirforensics.cli demo cases/demo.yaml
+# Demo case — zero-setup. Run: python -m arbor.cli demo cases/demo.yaml
 #
 # The `demo` command generates a synthetic inventory JSON at `inventory`
 # before running the full pipeline. All data is fictional.

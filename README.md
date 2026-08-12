@@ -12,8 +12,8 @@ cd dir-forensics
 pip install -e ".[dev]"
 
 # Generate synthetic data + run full pipeline + launch viewer
-python -m dirforensics.cli demo cases/demo.yaml --verbose
-python -m dirforensics.cli serve cases/demo.yaml
+python -m arbor.cli demo cases/demo.yaml --verbose
+python -m arbor.cli serve cases/demo.yaml
 # → open http://localhost:8765
 ```
 
@@ -38,15 +38,15 @@ Every analyzer reads **only** metadata (filenames, paths, sizes). No file conten
 
 ```bash
 # Scan a local directory into an inventory JSON
-python -m dirforensics.adapters.local_fs /path/to/archive --out inventory.json
+python -m arbor.adapters.local_fs /path/to/archive --out inventory.json
 
 # Create a case config (copy cases/demo.yaml as template)
 cp cases/demo.yaml cases/my-case.yaml
 # Edit: set inventory, output_dir, case, label
 
 # Run
-python -m dirforensics.cli all cases/my-case.yaml --verbose
-python -m dirforensics.cli serve cases/my-case.yaml
+python -m arbor.cli all cases/my-case.yaml --verbose
+python -m arbor.cli serve cases/my-case.yaml
 ```
 
 ### Option B: Apache directory listing crawl
@@ -55,7 +55,7 @@ For crawling an HTTP server with Apache-style `<pre>` autoindex listings:
 
 ```bash
 pip install -e ".[crawl]"
-python -m dirforensics.adapters.apache_listing \
+python -m arbor.adapters.apache_listing \
     --url http://example.org/files/ \
     --max-depth 15 \
     --output inventory.json
@@ -128,7 +128,7 @@ Dark/light theme toggle. All data stays local — no telemetry, no external requ
 ## Architecture
 
 ```
-dirforensics/
+arbor/
 ├── config.py          # CaseConfig dataclass + YAML loader
 ├── inventory.py       # Canonical inventory loading, DuckDB ingest
 ├── analyzers.py       # Structural analysis (tree, depth, ext, dupes, stats)

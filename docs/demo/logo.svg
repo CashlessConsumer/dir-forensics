@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Canopy: triangular tiers -->
+  <path d="M32 4 L20 22 L44 22 Z" fill="#4ade80"/>
+  <path d="M32 14 L16 34 L48 34 Z" fill="#22c55e"/>
+  <path d="M32 26 L12 48 L52 48 Z" fill="#16a34a"/>
+  <!-- Trunk -->
+  <rect x="28" y="48" width="8" height="12" rx="1" fill="#15803d"/>
+  <!-- Root flare -->
+  <path d="M24 60 L40 60 L36 56 L28 56 Z" fill="#166534"/>
+</svg>

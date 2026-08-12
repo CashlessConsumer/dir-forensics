@@ -5,7 +5,7 @@ no target-specific coupling: base URL, SOCKS proxy, concurrency, depth,
 checkpoint and output paths are all CLI/config driven.
 
 Usage:
-    python -m dirforensics.adapters.apache_listing \\
+    python -m arbor.adapters.apache_listing \\
         --base-url http://host/path/ --out inventory.json \\
         [--socks 127.0.0.1:9060] [--concurrency 12] [--max-depth 99]
         [--checkpoint crawl-checkpoint.json] [--inventory-every 5]
@@ -14,7 +14,7 @@ Usage:
 Features:
 - Async aiohttp (+ aiohttp_socks for Tor/any SOCKS5)
 - BFS with depth tracking, per-level checkpointing and resume
-- Apache <pre> listing parser (dirforensics.listing)
+- Apache <pre> listing parser (arbor.listing)
 - Per-depth inventory generation (JSON + markdown) at every N levels
 - Exponential backoff retry, graceful SIGINT checkpoint save
 

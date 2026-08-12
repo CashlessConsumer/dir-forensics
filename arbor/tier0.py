@@ -116,7 +116,7 @@ def tier0_all(cfg) -> str:
 
     payload = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "method": "dirforensics.tier0",
+        "method": "arbor.tier0",
         "stats": stats,
         "exact_dupe_groups": stats["exact_dupe_groups"],
         "near_dupe_groups": stats["near_dupe_groups"],

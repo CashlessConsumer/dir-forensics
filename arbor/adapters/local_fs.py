@@ -3,7 +3,7 @@
 Metadata-only: relpath, name, size, mtime. Never reads file contents.
 
 Usage:
-    python -m dirforensics.adapters.local_fs <dir> --out inventory.json \
+    python -m arbor.adapters.local_fs <dir> --out inventory.json \
         [--url-base https://example.com/root] [--max-depth N]
 
 The --url-base option attaches synthetic source URLs (useful when the local
