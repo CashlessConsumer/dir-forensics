@@ -1,0 +1,129 @@
+{
+ "generated_at": "2026-08-12T11:52:30Z",
+ "method": "dirforensics.tier0",
+ "stats": {
+  "raw_files": 714,
+  "raw_dirs": 62,
+  "raw_bytes": 9025145728,
+  "exact_dupe_files_dropped": 13,
+  "exact_dupe_bytes_wasted": 98149912,
+  "near_dupe_files_dropped": 624,
+  "total_dropped": 637,
+  "logical_files": 77,
+  "logical_bytes": 660774531,
+  "reduction_pct": 89.22,
+  "exact_dupe_groups": 4,
+  "near_dupe_groups": 65
+ },
+ "exact_dupe_groups": 4,
+ "near_dupe_groups": 65,
+ "request_budget_rows_per_request": {
+  "50": 2,
+  "100": 1,
+  "200": 1,
+  "500": 1,
+  "1000": 1
+ },
+ "top_near_dupe_keys": [
+  {
+   "key": "policy",
+   "variants": 26
+  },
+  {
+   "key": "contract",
+   "variants": 25
+  },
+  {
+   "key": "expense_report",
+   "variants": 25
+  },
+  {
+   "key": "invoice",
+   "variants": 25
+  },
+  {
+   "key": "forecast",
+   "variants": 22
+  },
+  {
+   "key": "compliance_doc",
+   "variants": 21
+  },
+  {
+   "key": "code_release",
+   "variants": 21
+  },
+  {
+   "key": "address_proof",
+   "variants": 19
+  },
+  {
+   "key": "transaction_log",
+   "variants": 19
+  },
+  {
+   "key": "receipt_scan",
+   "variants": 19
+  },
+  {
+   "key": "customer_list",
+   "variants": 18
+  },
+  {
+   "key": "archive",
+   "variants": 17
+  },
+  {
+   "key": "offer_letter",
+   "variants": 17
+  },
+  {
+   "key": "audit_report",
+   "variants": 17
+  },
+  {
+   "key": "id_photo",
+   "variants": 16
+  },
+  {
+   "key": "performanceiew",
+   "variants": 16
+  },
+  {
+   "key": "vendor_list",
+   "variants": 15
+  },
+  {
+   "key": "registry",
+   "variants": 15
+  },
+  {
+   "key": "deploy_script",
+   "variants": 15
+  },
+  {
+   "key": "api_handler",
+   "variants": 14
+  },
+  {
+   "key": "signature",
+   "variants": 14
+  },
+  {
+   "key": "meeting_notes",
+   "variants": 14
+  },
+  {
+   "key": "sop",
+   "variants": 14
+  },
+  {
+   "key": "nda",
+   "variants": 14
+  },
+  {
+   "key": "migration",
+   "variants": 14
+  }
+ ]
+}
