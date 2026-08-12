@@ -1,26 +1,40 @@
 """Unit tests for arbor.flags"""
 import pytest
 from pathlib import Path
-from arbor.flags import load_flags, classify_file
+from arbor.flags import build_flags, flags_all
 
-def test_load_flags():
-    """load_flags should return a dict of rule functions."""
-    flags = load_flags(Path("/home/workspace/Projects/dir-forensics/config/default-flags.yaml"))
-    assert isinstance(flags, dict)
-    assert "min_file_size" in flags
-    assert "suspicious_ext" in flags
+def test_build_flags_with_real_config():
+    """build_flags should process an inventory and write output JSON."""
+    from arbor.config import CaseConfig
+    cfg = CaseConfig(
+        case="test",
+        inventory=Path("/home/workspace/Projects/dir-forensics/cases/demo.yaml"),
+        output_dir=Path("/tmp/test-flag-output"),
+        flag_rules=[],
+    )
+    # Minimal inventory structure
+    from arbor.inventory import normalize_inventory, load_inventory
+    inv = load_inventory(Path("/home/workspace/Projects/dir-forensics/tests/data/demo_inventory_small.json"))
+    data = normalize_inventory(inv)
+    path = build_flags(cfg, data)
+    assert Path(path).exists()
+    import json
+    with open(path) as f:
+        out = json.load(f)
+    assert "categories" in out
+    assert "files" in out
 
-def test_classify_small_file():
-    """A small .txt file should not be flagged as suspicious by extension."""
-    flags = load_flags(Path("/home/workspace/Projects/dir-forensics/config/default-flags.yaml"))
-    result = classify_file("/some/path/small.txt", flags)
-    # Small files should not trigger size-based flags
-    assert result is None or "suspicious" not in str(result).lower()
-
-def test_classify_large_script():
-    """A large .py file should be flagged if over size threshold."""
-    flags = load_flags(Path("/home/workspace/Projects/dir-forensics/config/default-flags.yaml"))
-    # Create a mock large file path
-    result = classify_file("/some/path/big.py", flags)
-    # The classification should return a category or None
-    assert result is None or isinstance(result, dict)
+def test_flags_all_uses_inventory():
+    """flags_all should process inventory via config."""
+    from arbor.config import CaseConfig
+    cfg = CaseConfig(
+        case="test",
+        inventory=Path("/home/workspace/Projects/dir-forensics/cases/demo.yaml"),
+        output_dir=Path("/tmp/test-flag-output2"),
+        flag_rules=[],
+    )
+    result = flags_all(cfg)
+    assert isinstance(result, str)
+    import json
+    # result should be a JSON string path
+    assert "categories" in result or Path(result).exists()
