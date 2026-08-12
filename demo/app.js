@@ -1,7 +1,7 @@
 /* dir-forensics viewer — fetches artifacts and renders interactive dashboard */
 
 const CASE = window.CASE || "";
-const BASE = ""; // same-origin
+const BASE = "./"; // same-origin
 
 // ── state ──
 let _cache = {};
